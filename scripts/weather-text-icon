@@ -20,11 +20,11 @@ NO_DATA=""
 
 WEATHER_ICON=$(cat ~/.cache/weather.json | jq -r '.weather[0].icon')
 
-if [[ "${WEATHER_ICON}" = *01d* ]]; then
+if [[ "${WEATHER_ICON}" = *01d* || "${WEATHER_ICON}" = *02d* ]]; then
     echo "${ICON_01D}"
-elif [[ "${WEATHER_ICON}" = *01n* ]]; then
+elif [[ "${WEATHER_ICON}" = *01n* || "${WEATHER_ICON}" = *02n* ]]; then
     echo "${ICON_01N}"
-elif [[ "${WEATHER_ICON}" = *02d* || "${WEATHER_ICON}" = *02n* || "${WEATHER_ICON}" = *03d* || "${WEATHER_ICON}" = *03n* || "${WEATHER_ICON}" = *04d* || "${WEATHER_ICON}" = *04n* ]]; then
+elif [[ "${WEATHER_ICON}" = *03d* || "${WEATHER_ICON}" = *03n* || "${WEATHER_ICON}" = *04d* || "${WEATHER_ICON}" = *04n* ]]; then
     echo "${ICON_02}"
 elif [[ "${WEATHER_ICON}" = *09d* || "${WEATHER_ICON}" = *09n* ]]; then
     echo "${ICON_09}"
